@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func start_drawing():
 	var draw_tween = create_tween()
-	draw_tween.tween_method(set_material_draw_amount,0.0,1.1, draw_speed)
+	draw_tween.tween_method(set_material_draw_amount,0.0,1.1, draw_speed).set_trans(Tween.TRANS_LINEAR)
 
 
 func set_material_draw_amount(value: float):
