@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://dobko07n6c37r"]
+
+[ext_resource type="Shader" path="res://draw_and_erase_shader.gdshader" id="1_5ibcx"]
+[ext_resource type="Texture2D" uid="uid://fi8hyraagdn4" path="res://Textures/feels_bad_man_outline.png" id="2_d66cv"]
+[ext_resource type="Script" path="res://Scripts/self_drawing_sprite.gd" id="2_ijafl"]
+[ext_resource type="Texture2D" uid="uid://djjcl3r1166oi" path="res://Textures/feels_bad_man_mouth_color.png" id="4_r3vu8"]
+[ext_resource type="Texture2D" uid="uid://d0qm67s7ffwmw" path="res://Textures/feels_bad_man_skin_color.png" id="5_iinby"]
+[ext_resource type="Texture2D" uid="uid://3d6vi6mxmokb" path="res://Textures/feels_bad_man_eye_color.png" id="6_kk4oi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlatu"]
+shader = ExtResource("1_5ibcx")
+shader_parameter/draw_point = 0.0
+shader_parameter/color = Color(0.886275, 0.886275, 0.894118, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3u7uh"]
+shader = ExtResource("1_5ibcx")
+shader_parameter/draw_point = 0.0
+shader_parameter/color = Color(0.827451, 0.368627, 0.223529, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1tqmb"]
+shader = ExtResource("1_5ibcx")
+shader_parameter/draw_point = 0.0
+shader_parameter/color = Color(0.439216, 0.635294, 0.345098, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h6tyg"]
+shader = ExtResource("1_5ibcx")
+shader_parameter/draw_point = 0.0
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[node name="sample_scene" type="Node2D"]
+
+[node name="eyes" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tlatu")
+position = Vector2(566, 296)
+texture = ExtResource("6_kk4oi")
+script = ExtResource("2_ijafl")
+
+[node name="mouth" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_3u7uh")
+position = Vector2(566, 296)
+texture = ExtResource("4_r3vu8")
+script = ExtResource("2_ijafl")
+
+[node name="skin" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_1tqmb")
+position = Vector2(566, 296)
+texture = ExtResource("5_iinby")
+script = ExtResource("2_ijafl")
+
+[node name="outline" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_h6tyg")
+position = Vector2(566, 296)
+texture = ExtResource("2_d66cv")
+script = ExtResource("2_ijafl")
+draw_speed = 5.0
